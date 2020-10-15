@@ -1,0 +1,28 @@
+{{ template "header.html" .}}
+
+    <div class="row-60">
+      <div class="announcements"></div>
+    </div>
+    <div class="row-30">
+      <h2>Login here:</h2>
+      <form class="login" method="post" action="/login">
+        <p>
+        <label for="uname">Username: </label>
+        <input name="uname" type="text" placeholder="Username">
+        </p>
+        <p>
+        <label for="pwd">Password: </label>
+        <input name="passwd" type="password" placeholder="Password">
+        </p>
+        <p>
+        <label for="rememe">Remember me: </label>
+        <input name="passwd" type="checkbox">
+        </p>
+        <p>
+        <input name="submit" type="submit">
+        </p>
+      </form>
+    </div>
+
+
+{{ template "footer.html" .}}

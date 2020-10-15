@@ -1,0 +1,51 @@
+{{ template "body.html" .}}
+
+<div class="holder">
+		<h2 class="holder-heading">Education Details</h2>
+		{{ if .User.Education }}
+		<table>
+			<thead>
+				<tr>
+				<th>Institution</th>
+				<th>Course</th>
+				<th>Month of passing</th>
+				<th>Year of Passing</th>
+				<th></th>
+				</tr>
+			</thead>
+				<tbody>
+				{{range .User.Education }}
+				<tr>
+					<td>{{.Institution}}</td>
+					<td>{{.Course}}</td>
+					<td>{{.Mop}}</td>
+					<td>{{.Yop}}</td>
+					<td><a class="onhoverlink" href="/education/delete/{{.ID}}">&#128465;</a><!--<span class="onhovertext">Delete</span>--></td>
+				</tr>
+				{{end}}
+			</tbody>
+		</table>
+		<br>
+		<br>
+		{{ end }}
+		
+		<form id="qualinfo" action="/action_page.php">
+			<p>
+	  	<label for="college">Institution:</label> <input required type="text" id="college" name="college">
+	  	<label for="Course">Course:</label> <input required type="text" id="course" name="course">
+			<label for="mop">Month/Year of passing:</label> <input required type="month" id="month" name="month" value="2014-05"></p><br>
+	  	<input required type="submit" value="Add">
+		</form> 
+</div>
+
+<div class="holder">
+	<h2 class="holder-heading">Banking Details</h2>
+	<form id="bankinfo" action="/action_page.php">
+	<p><label>PAN #:</label> <input style="text-transform:uppercase" required type="text" id="pan" name="pan" value={{ .User.Bank.PAN }}></p>
+	<p><label>Bank:</label> <input style="text-transform:uppercase" required type="text" id="bank" name="bank" value={{ .User.Bank.Name }}>
+		<label>Acc #:</label> <input style="text-transform:uppercase" required type="text" id="acc" name="acc" value={{ .User.Bank.Account }}>
+		<label>IFSC: </label> <input style="text-transform:uppercase" required type="ifsc" id="ifsc" name="ifsc" value={{ .User.Bank.IFSC }}></p><br>
+	  <input required type="submit" value="update">
+	</form> 
+</div>
+{{ template "footer.html" .}}

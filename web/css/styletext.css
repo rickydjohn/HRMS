@@ -1,0 +1,195 @@
+body {
+	font-family: "tisa";
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f5;
+	color: black;
+	width:99%;
+	height: 95%;
+	font-size: 15px;
+}
+header {
+	font-family: ui-monospace;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-left:20px;
+	text-transform: uppercase;
+}
+.container{
+	height: inherit;
+	width: inherit;
+}
+.banner { width: inherit; }
+header {
+	padding-left: 30px;
+	text-align: left;
+}
+header a { text-decoration: none; }
+header a:hover { color: red; }
+.seperator {
+	width: inherit;
+	margin-top: 20px;
+}
+.row-60 {
+	height: inherit;
+	margin: 5px;
+	float: left;
+	width: 60%;
+}
+.announcements {
+	border-left-style: groove;
+	border-right-style: groove;
+	height: inherit;
+	padding:5px;
+	border-radius:30px;
+}
+.row-30 {
+	border-radius: 30px;
+	padding-left: 20px;
+	border-left-style: groove;
+	height: inherit;
+	margin: 5px;
+	float: right;
+	width: 35%;
+}
+.row-30 h2 { margin-top: 20%; }
+.row-30 form { display: table; }
+.row-30 form p { display: table-row; }
+.row-30 form label {
+	padding-top: 10px;
+	display: table-cell;
+}
+.row-30 form input{ display: table-cell; }
+.row-90 {
+	margin-left: 20;
+	margin-top: 10;
+	height: inherit;
+	width:98%;
+}
+.navbar {
+	border-radius:15px;
+	height: inherit;
+	width: 12%;
+	border-right-style: groove;
+	float: left;
+}
+.content {
+	height: inherit;
+	float: right;
+	width: 85%;
+	border-left-style: groove;
+	border-right-style: groove;
+	border-radius: 30px;
+	overflow: scroll;
+}
+.navbar a{
+	color: inherit;
+	text-decoration: none;
+	display: block;
+	font-size: 20px;
+	text-align: left;
+	padding-top: 20px;
+	padding-left: 30px;
+}
+.navbar a:hover { font-size:23px; }
+footer {
+	width: 100%;
+	margin: 10px;
+	text-align: left;
+	font-size:10px;
+}
+.holder{
+	font-size: 18px;
+	width:inherit;
+	padding-left:40px;
+	padding-top: 15px;
+	border-bottom-style: groove;
+	min-height: 30%;
+	max-height: 100%;
+}
+.holder-heading{
+	font-size:25px;
+	text-decoration: underline;
+	padding-bottom: 5px;
+}
+.holder form {
+	display: table;
+	padding: 10px;
+}
+.holder form p{ display: table-row; }
+.holder form label{
+	padding-right: 10px;
+	display: table-cell;
+}
+.holder form input,select,textarea{
+	min-width:50px;
+	margin: 5px;
+	padding-left: 5px;
+	display: table-cell;
+	border-radius: 5px;
+}
+.holder input[type=submit] {
+  width: 150px;  
+	height: 25px;
+	border-style: outset;
+	color: black;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #eee;
+}
+.holder input[type=submit]:hover {
+	background: #016ABC;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow:none;
+}
+.holder form input:read-only {
+	background-color: #dddddd;
+}
+.holder table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.holder table th {
+	padding: 8px;
+	text-align: left;
+	font-size: 20px;
+	background-color: #c7c3c3;
+}
+.holder table td {
+	text-align: left;
+	font-size: 18px;
+	padding: 8px;
+	border-bottom: 1px solid #ddd;
+}
+.holder-25 {
+	width: 20%;
+	float: left;
+	padding-bottom: 25px;
+	padding-top: 3%;
+	padding-left:1%;
+	padding-right:1%;
+	border-right: 1px groove;
+	border-radius: 20px;
+}
+.holder-75 {
+	margin-top: 3%;
+	width: 72%;
+	float:right;
+	text-align: left;
+	border-left: 1px groove;
+	border-radius: 20px;
+	padding-left: 1%;
+}
+.holder-25 table th{ 
+	background-color: #c7c3c3;
+	font-size: 15px; 
+}
+.holder-25 table td{ 
+	font-size: 15px; 
+}
+.holder-75 table th{ 
+	background-color: #c7c3c3;
+	font-size: 15px; 
+}

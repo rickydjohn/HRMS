@@ -1,0 +1,77 @@
+{{ template "body.html" .}}
+	<div class="holder-25">
+		<h3 class="holder-heading"> List of Public Holidays </h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Holiday</th>
+					<th>Date </th>
+				</tr>
+			</thead>
+			<tbody>
+				{{range $key, $val :=  .AppSpec.Holidays }}
+				<tr>
+					<td>{{ $val}}</td> 
+					<td>{{ $key }}</td>
+				</tr>
+				{{ end }}
+			</tbody>
+		</table>
+	</div >
+	<div class="holder-75">
+		<h2>Allotted Leaves: {{.AppSpec.TotalLeaves}}</h2>
+		<h2>Availed Leaves : {{.User.Leaves.TotalLeaves}}</h2>
+	<div class="holder">
+		<form id="caddress" action="/action_page.php">
+			<p><label>Leave</label>
+				<select name="LeaveType"> 
+		    <option value="casual">Casual</option>
+		    <option value="medical">Medical</option>
+	  </select>	
+			</p><p></p>
+			<p><label>From:</label><input required type="date" name="from">
+			<label>To:</label><input required type="date" name="to"></p>
+			<p><label>Reason:</label>
+					<textarea rows="5" cols="33" name="comment">
+					</textarea>
+			</p>
+		  <input required type="submit" value="Submit">
+		</form> 
+	</div>
+
+	
+	{{ if gt .User.Leaves.TotalLeaves 0}}
+	<p>Click <a onclick="myFunction()">here</a> to see the leave history</a>
+	<div class="holder" id="hiddentable" style="display: none;">
+		<table>
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>From</th>
+					<th>To</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{ range .User.Leaves.LeaveHistory}}
+				<tr>
+					<td>{{ .Type }} </td>
+					<td>{{ .Start }} </td>
+					<td>{{ .End }} </td>
+					<td>{{ .Status }} </td>
+				</tr>
+				{{ end }}
+			</tbody>
+		</table>
+	</div>
+	{{end}}
+	</div>
+	<script>
+		function myFunction() {
+			  document.getElementById("hiddentable").style.display = "block";
+		}
+	</script>
+
+
+
+{{ template "footer.html" .}}
