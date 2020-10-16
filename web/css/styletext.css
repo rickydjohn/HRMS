@@ -193,3 +193,31 @@ footer {
 	background-color: #c7c3c3;
 	font-size: 15px; 
 }
+.nav-horizontal{
+	width: inherit;
+	margin-left: 2%;
+	margin-top: 2%;
+	border-radius: 5px;
+}
+.nav-horizontal ul{
+  list-style-type: none;
+	width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: grey;
+}
+.nav-horizontal li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+.nav-horizontal li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.nav-horizontal li a:hover:not(.active) {
+	background-color: #111;
+}
