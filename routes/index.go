@@ -1,8 +1,10 @@
 package routes
 
 import (
+	"database/sql"
 	"net/http"
 
+	"github.com/HRMS/db"
 	"github.com/HRMS/models"
 	"github.com/google/uuid"
 )
@@ -29,7 +31,7 @@ func (r *App) index(rw http.ResponseWriter, req *http.Request) {
 				return
 			}
 		}
-		user, err := r.crud.BuildUser(uid)
+		user, err := r.crud.BuildUser(uid, db.PERSONAL)
 		if err != nil {
 			r.log.Error("Unable to build user info from DB module: ", err)
 			if err := r.template.ExecuteTemplate(rw, "error.html", w); err != nil {
@@ -65,9 +67,10 @@ func (r *App) login(rw http.ResponseWriter, req *http.Request) {
 	r.sessionCtrl.Create(ssid, uname, req.RemoteAddr, v.UID)
 	http.SetCookie(rw, &http.Cookie{Name: "ssid", Value: ssid, MaxAge: 86400})
 
-	user, err := r.crud.BuildUser(v.UID)
-	if err != nil {
-		r.log.Error("Error occurred while building user info: ", err)
+	user, err := r.crud.BuildUser(v.UID, db.PERSONAL)
+	if err == sql.ErrNoRows {
+		r.log.Error("Username/Password combination does not exist")
+		u.Message = "Username/Password combination does not exist"
 		r.template.ExecuteTemplate(rw, "error.html", r)
 		return
 	}
@@ -107,7 +110,7 @@ func (r *App) home(rw http.ResponseWriter, req *http.Request) {
 	var u models.Webstruct
 	cookie, _ := req.Cookie("ssid")
 	uid, _ := r.sessionCtrl.GetUID(cookie.Value)
-	user, err := r.crud.BuildUser(uid)
+	user, err := r.crud.BuildUser(uid, db.PERSONAL)
 	if err != nil {
 		r.log.Error("Error occurred while building user info", err)
 		r.template.ExecuteTemplate(rw, "error.html", r)

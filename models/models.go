@@ -14,9 +14,9 @@ type User struct {
 	Fname     string      `db:"fname"`
 	Lname     string      `db:"lname"`
 	UID       int         `db:"uid"`
-	EmpStatus string      `db:"emp_status"`
+	EmpStatus string      `db:"empstatus"`
 	Joining   string      `db:"joining"`
-	Role      Role        `db:"role"`
+	Role      string      `db:"role"`
 	Contact   Contact     `db:"contact"`
 	Address   Address     `db:"address"`
 	Bank      Bank        `db:"bank"`
@@ -25,13 +25,6 @@ type User struct {
 	Leaves    Leaves      `db:"leaves"`
 	Peers     []string    `db:"peers"`
 	TeamID    int         `db:"team_id"`
-}
-
-// Role for a history of roles.
-type Role struct {
-	Name  string `db:"name"`
-	Start string `db:"start"`
-	End   string `db:"end"`
 }
 
 //Contact gives the current contact details.

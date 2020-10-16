@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/HRMS/db"
 	"github.com/HRMS/models"
 	"github.com/HRMS/sessions"
 	"github.com/gorilla/mux"
@@ -17,11 +18,11 @@ type App struct {
 	handler     *mux.Router
 	log         *logrus.Entry
 	sessionCtrl sessions.SessInterface
-	crud        models.Storage
+	crud        db.Storage
 }
 
 //New is the starting function
-func New(log *logrus.Entry, CN models.App, session sessions.SessInterface, crud models.Storage) *App {
+func New(log *logrus.Entry, CN models.App, session sessions.SessInterface, crud db.Storage) *App {
 	log.Info("Creating a route object")
 	t := template.Must(template.ParseGlob("web/static/*.html"))
 	handler := mux.NewRouter().StrictSlash(true)

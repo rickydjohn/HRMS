@@ -4,7 +4,7 @@
 		<form id="holder-form" method="put" action="/action_page.php">
 			<p><label>Emp ID:</label> <input required type="text" id="empid" name="empid" readonly value={{ .User.UID}}></p>
 			<p><label>Emp Status:</label> <input required type="text" id="empstat" name="empstat" readonly value={{ .User.EmpStatus}}></p>
-			<p><label>Joining:</label> <input required type="text" id="joining" name="joining" readonly value={{ .User.EmpStatus}}></p>
+			<p><label>Joining:</label> <input required type="text" id="joining" name="joining" readonly value={{ .User.Joining}}></p>
 			<p><label>First name:</label> <input required type="text" id="fname" name="fname" value={{ .User.Fname }}></p>
 			<p><label>Last name:</label> <input required type="text" id="lname" name="lname" value={{ .User.Lname}}></p><br>
 			<p><input required type="submit" value="Update"><p>

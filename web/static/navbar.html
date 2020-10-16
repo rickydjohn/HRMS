@@ -1,9 +1,11 @@
-{{define "navbar"}}
 	<a href="/home">Personal</a>
 	<a href="/education">Bank/Education</a>
-	<a href="/leaves">Leaves</a> 
-	<a href="/assets">Assets</a> 
+	<a href="/leaves">Holidays/Leaves</a> 
+	<a href="#">Payroll/Assets</a> 
+	{{if or (eq .User.Role	"admin") (eq .User.Role "hradmin") }}
 	<a href="/hradmin">HR Admin</a> 
-	<a href="/iadmin">IT Admin</a> 
+	{{ end }}
+	{{if or (eq .User.Role	"admin") (eq .User.Role "itadmin") }}
+	<a href="/itadmin">IT Admin</a> 
+	{{ end }}
 	<a href="/logout">Logout</a> 
-{{end}}

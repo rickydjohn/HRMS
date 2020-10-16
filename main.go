@@ -24,7 +24,6 @@ func config(path string, log *logrus.Entry) *models.SvcConfig {
 	if err := json.Unmarshal(bt, &conf); err != nil {
 		log.Fatal("Error while parsing config file: ", err)
 	}
-
 	return &conf
 }
 
@@ -36,7 +35,7 @@ func main() {
 	flag.Parse()
 	c := config(*logf, log.WithField("Module", "Config"))
 	session := sessions.Begin()
-	db, err := db.Begin(c.DB)
+	db, err := db.Begin(c.DB, c.Application.YearStart)
 	if err != nil {
 		panic(err)
 	}
