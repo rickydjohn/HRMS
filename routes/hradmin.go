@@ -23,6 +23,13 @@ func (r *App) hradmin(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 	u.User = user
+	teams, err := r.crud.ListTeams()
+	if err != nil {
+		r.log.Error("Error while processing request: ", err)
+		r.template.ExecuteTemplate(rw, "error.html", r)
+		return
+	}
+	u.Teams = teams
 	if user.Role == "admin" || user.Role == "hradmin" {
 		if err := r.template.ExecuteTemplate(rw, "hradmin.html", u); err != nil {
 			r.log.Error("Error while processing request: ", err)

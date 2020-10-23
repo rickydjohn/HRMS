@@ -39,6 +39,34 @@
 </div>
 
 <div class="holder">
+	<h2 class="holder-heading">Employment History</h2>
+{{ if .User.EmpHistory }}
+	<table>
+		<thead>
+			<tr>
+				<th>Company</th>
+				<th>Joining Month</th>
+				<th>Joining Year</th>
+				<th>Leaving Month</th>
+				<th>Leaving Year</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ range .User.EmpHistory }}
+			<tr>
+				<td>{{ .Company }}</td>
+				<td>{{ .FromMonth }}</td>
+				<td>{{ .FromYear }}</td>
+				<td>{{ .ToMonth }}</td>
+				<td>{{ .ToYear }}</td>
+			</tr>
+			{{ end }}
+	</tbody>
+	</table>
+{{ end }}
+</div>
+
+<div class="holder">
 	<h2 class="holder-heading">Banking Details</h2>
 	<form id="bankinfo" action="/action_page.php">
 	<p><label>PAN #:</label> <input style="text-transform:uppercase" required type="text" id="pan" name="pan" value={{ .User.Bank.PAN }}></p>

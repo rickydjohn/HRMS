@@ -1,19 +1,73 @@
 {{ template "body.html" .}}
 {{ template "hradmin" }}
 
-<!--
 <div class="holder">
-	<h2 class="holder-heading">Reset Password</h2>
-	<form id="qualinfo" action="/action_page.php">
-		<p>
-  	<label>Search by:</label> 
-  	<select name="search"> 
-		    <option value="empid">EmpID</option>
-		    <option value="uname">Username</option>
-	  </select>	
-		<input required type="text" name="value">
-		<input required type="submit" value="Reset"></p>
-	</form> 
+		<form action="cvformphp.php" method="post">
+
+			<table id="personal">
+				<tbody>
+					<tr><td><h3>Personal Info</h3></td></tr>
+					<tr>
+							<td>First Name</td> <td><input type="text" name="name"></td>
+							<td>Middle Name</td> <td><input type="text" name="name"></td>
+							<td>Last Name</td> <td><input type="text" name="name"></td>
+					</tr>
+					<tr>
+						<td>Email </td><td><input type="email" name="email"></td>
+						<td>Phone </td><td><input type="email" name="email"></td>
+					</tr>
+				</tbody>
+				<tbody id="exp" name="exp">
+					<tr><td><h3>Experiences</h3></td></tr>
+					<tr>
+							<td>Company name</td><td><input type="text" id="comp1" name="comp1"></td>
+							<td>From  </td><td><input type="month" id="from1" name="from1"></td>
+							<td>To </td><td><input type="month" id="to1" name="to1"></td>
+					</tr>
+					<input type="text" style="visibility: hidden" hidden="hidden" value="1" id="countexp" name="countexp"/>
+					</tbody>
+				<tr>
+					<td></td>
+					<td><input  type="button" id="2" value="+ Add More"  onclick="addExp()"/></td></td>
+				</tr>
+				<tbody id="edu" name="edu">
+					<tr><td><h3>Education</h3></td></tr>
+					<tr>
+							<td>Institution </td><td><input type="text" id="inst1" name="inst1"></td>
+							<td>Course </td><td><input type="text" id="course1" name="course1"></td>
+							<td>Passing Year </td><td><input type="month" id="yop1" name="yop1"></td>
+					</tr>
+					<input type="text" style="visibility: hidden" hidden="hidden" value="1" id="countedu" name="countedu"/>
+					</tbody>
+				<tr>
+					<td></td>
+					<td><input  type="button" id="2" value="+ Add More"  onclick="addEdu()"/></td></td>
+				</tr>
+			<tbody id="splpriv">
+					<tr><td><h3>Account/Reporting specifics</h3></td></tr>
+					<tr>
+						<td>Access Elevation:</td>
+						<td> <input type="radio" name="admin" value="itadmin"/><td>IT Admin</td>
+						<td><input type="radio" name="admin" value="hradmin"/></td><td>HR Admin</td>
+					</tr>
+					<tr>
+						<td>Team</td>
+						<td>
+							{{ if .Teams }}
+								{{ range .Teams }}
+								<select name="teams" id="teams">
+									<option value={{ .TID }}>{{ .Name }}</option>
+								{{ end }}
+							{{ else }}
+								<td><p>Please create a team before creating user</p></td>
+							{{ end }}
+						</td>
+					</tr>
+					
+			</tbody>
+		</table>
+
+		</form>
 </div>
--->
+
 {{ template "footer.html" .}}

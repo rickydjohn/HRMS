@@ -28,9 +28,11 @@ const (
 	PAYROLL          = "payroll"
 	HRADMIN          = "hradmin"
 	ITADMIN          = "itadmin"
+	TEAMS            = "teams"
 )
 
 type Storage interface {
 	Auth(uname, pwd string) (models.User, error)
 	BuildUser(uid int, fName Queries) (models.User, error)
+	ListTeams() ([]models.Team, error)
 }

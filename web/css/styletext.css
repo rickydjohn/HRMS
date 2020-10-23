@@ -103,9 +103,7 @@ footer {
 	width:inherit;
 	padding-left:40px;
 	padding-top: 15px;
-	border-bottom-style: groove;
 	min-height: 30%;
-	max-height: 100%;
 }
 .holder-heading{
 	font-size:25px;
@@ -126,7 +124,6 @@ footer {
 	margin: 5px;
 	padding-left: 5px;
 	display: table-cell;
-	border-radius: 5px;
 }
 .holder input[type=submit] {
   width: 150px;  
