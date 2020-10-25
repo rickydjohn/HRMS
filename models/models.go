@@ -2,29 +2,31 @@ package models
 
 // Webstruct contains Data that will be displayed on the website
 type Webstruct struct {
-	//CompanyName string
 	AppSpec App
 	User    User
 	IsAuth  bool
 	Message string
+	Teams   []Team
 }
 
 // User struct contains data that corresponds to a user
 type User struct {
-	Fname     string      `db:"fname"`
-	Lname     string      `db:"lname"`
-	UID       int         `db:"uid"`
-	EmpStatus string      `db:"empstatus"`
-	Joining   string      `db:"joining"`
-	Role      string      `db:"role"`
-	Contact   Contact     `db:"contact"`
-	Address   Address     `db:"address"`
-	Bank      Bank        `db:"bank"`
-	Education []Education `db:"education"`
-	Salary    Salary      `db:"salary"`
-	Leaves    Leaves      `db:"leaves"`
-	Peers     []string    `db:"peers"`
-	TeamID    int         `db:"team_id"`
+	Fname      string       `db:"fname"`
+	Mname      string       `db:"mname"`
+	Lname      string       `db:"lname"`
+	UID        int          `db:"uid"`
+	EmpStatus  string       `db:"empstatus"`
+	Joining    string       `db:"joining"`
+	Role       string       `db:"role"`
+	Contact    Contact      `db:"contact"`
+	Address    Address      `db:"address"`
+	Bank       Bank         `db:"bank"`
+	Education  []Education  `db:"education"`
+	EmpHistory []EmpHistory `db:"empHistory"`
+	Salary     Salary       `db:"salary"`
+	Leaves     Leaves       `db:"leaves"`
+	Peers      []string     `db:"peers"`
+	TeamID     int          `db:"team_id"`
 }
 
 //Contact gives the current contact details.
@@ -90,4 +92,12 @@ type Leave struct {
 	End    string `db:"end"`
 	Status string `db:"status"`
 	Reason string `db:"reason"`
+}
+
+type EmpHistory struct {
+	Company   string `db:"company"`
+	FromMonth string `db:"fromMonth"`
+	FromYear  int    `db:"fromYear"`
+	ToMonth   string `db:"toMonth"`
+	ToYear    int    `db:"toYear"`
 }

@@ -1,23 +1,16 @@
-<!---
-<html>
-	<head>
-		<title> {{ .AppSpec.Company }} | HR & Asset Management system </title>
-		<link rel="stylesheet" type="text/css" href="web/css/styletext.css">
-	</head>
-	<body>
-	<div id="content">
-		<div id="nav"> 
-			<h1> <a class="homebutton" href="/home">{{ .AppSpec.Company }} </a> | HR & Asset Management tool </h1>
-		</div>
-		<hr id="navdivider">
--->
 <html>
 <head>
 	<title> {{ .AppSpec.Company }} | HR & Asset Management system </title>
   <link rel="stylesheet" type="text/css" href="web/css/styletext.css">
+	<script src="web/css/script.js"></script>
 </head>
-<body>
-  <div class="container">
+<body onload="postLoad()">
+	<script>
+		function postLoad(){
+			document.getElementById("container").style.height = screen.height;
+		}
+	</script>
+  <div  id="container" class="container">
     <div class="banner">
       <header><a href="/home">{{.AppSpec.Company}}</a> | HR & Asset management tool </header>
       <hr class="seperator">

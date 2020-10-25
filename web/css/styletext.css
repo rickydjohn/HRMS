@@ -5,7 +5,6 @@ body {
 	background-color: #f0f0f5;
 	color: black;
 	width:99%;
-	height: 95%;
 	font-size: 15px;
 }
 header {
@@ -31,15 +30,14 @@ header a:hover { color: red; }
 	margin-top: 20px;
 }
 .row-60 {
-	height: inherit;
 	margin: 5px;
 	float: left;
 	width: 60%;
+	height: inherit;
 }
 .announcements {
 	border-left-style: groove;
 	border-right-style: groove;
-	height: inherit;
 	padding:5px;
 	border-radius:30px;
 }
@@ -47,10 +45,10 @@ header a:hover { color: red; }
 	border-radius: 30px;
 	padding-left: 20px;
 	border-left-style: groove;
-	height: inherit;
 	margin: 5px;
 	float: right;
 	width: 35%;
+	height: inherit;
 }
 .row-30 h2 { margin-top: 20%; }
 .row-30 form { display: table; }
@@ -63,24 +61,19 @@ header a:hover { color: red; }
 .row-90 {
 	margin-left: 20;
 	margin-top: 10;
-	height: inherit;
 	width:98%;
 }
 .navbar {
 	border-radius:15px;
-	height: inherit;
 	width: 12%;
-	border-right-style: groove;
 	float: left;
 }
 .content {
-	height: inherit;
 	float: right;
 	width: 85%;
 	border-left-style: groove;
 	border-right-style: groove;
 	border-radius: 30px;
-	overflow: scroll;
 }
 .navbar a{
 	color: inherit;
@@ -95,6 +88,7 @@ header a:hover { color: red; }
 footer {
 	width: 100%;
 	margin: 10px;
+	height: 10px;
 	text-align: left;
 	font-size:10px;
 }
@@ -103,9 +97,6 @@ footer {
 	width:inherit;
 	padding-left:40px;
 	padding-top: 15px;
-	border-bottom-style: groove;
-	min-height: 30%;
-	max-height: 100%;
 }
 .holder-heading{
 	font-size:25px;
@@ -126,11 +117,9 @@ footer {
 	margin: 5px;
 	padding-left: 5px;
 	display: table-cell;
-	border-radius: 5px;
 }
 .holder input[type=submit] {
   width: 150px;  
-	height: 25px;
 	border-style: outset;
 	color: black;
 	border-radius: 20px;
@@ -175,6 +164,7 @@ footer {
 }
 .holder-75 {
 	margin-top: 3%;
+	height: inherit;
 	width: 72%;
 	float:right;
 	text-align: left;

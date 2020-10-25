@@ -1,24 +1,25 @@
 {{ template "body.html" . }}
 	<div class="holder">
 		<h2 class="holder-heading"> Basic Information</h2>
-		<form id="holder-form" method="put" action="/action_page.php">
-			<p><label>Emp ID:</label> <input required type="text" id="empid" name="empid" readonly value={{ .User.UID}}></p>
-			<p><label>Emp Status:</label> <input required type="text" id="empstat" name="empstat" readonly value={{ .User.EmpStatus}}></p>
-			<p><label>Joining:</label> <input required type="text" id="joining" name="joining" readonly value={{ .User.Joining}}></p>
-			<p><label>First name:</label> <input required type="text" id="fname" name="fname" value={{ .User.Fname }}></p>
-			<p><label>Last name:</label> <input required type="text" id="lname" name="lname" value={{ .User.Lname}}></p><br>
+		<form >
+			<p><label>Emp ID:</label> <input required type="text"  readonly value={{ .User.UID}}></p>
+			<p><label>Emp Status:</label> <input required type="text"  readonly value={{ .User.EmpStatus}}></p>
+			<p><label>Joining:</label> <input required type="text"  readonly value={{ .User.Joining}}></p>
+			<p><label>First name:</label> <input required type="text"  value={{ .User.Fname }}>
+			<label>Middle name:</label> <input required type="text"  value={{ .User.Mname}}>
+			<label>Last name:</label> <input required type="text"  value={{ .User.Lname}}></p><br>
 			<p><input required type="submit" value="Update"><p>
 		</form> 
 	</div>
 	<div class="holder">
 		<h2 class="holder-heading">Current Address</h3>
-		<form id="caddress" action="/action_page.php">
-			<p><label>Home/Apt:</label><input required type="text" id="home" name="home" value={{ .User.Address.House }}>
-			<label>Street:</label><input required type="text" id="street" name="street" value={{ .User.Address.Street }}></p>
-			<p><label>District:</label><input required type="text" id="district" name="district" value={{ .User.Address.District }}>
-			<label>State:</label><input required type="text" id="state" name="state" value={{ .User.Address.State }}></p>
-			<p><label>ZipCode:</label><input required type="text" id="zip" name="zip" value={{ .User.Address.Zipcode }}></p>
-			<p><label>Landmark:</label><input required type="text" id="lm" name="lm" value={{ .User.Address.Landmark }}></p><br>
+		<form >
+			<p><label>Home/Apt:</label><input required type="text"  value={{ .User.Address.House }}>
+			<label>Street:</label><input required type="text"  value={{ .User.Address.Street }}></p>
+			<p><label>District:</label><input required type="text"  value={{ .User.Address.District }}>
+			<label>State:</label><input required type="text"  value={{ .User.Address.State }}></p>
+			<p><label>ZipCode:</label><input required type="text"  value={{ .User.Address.Zipcode }}></p>
+			<p><label>Landmark:</label><input required type="text"  value={{ .User.Address.Landmark }}></p><br>
 		  <input required type="submit" value="Update">
 		</form> 
 	</div>
@@ -27,10 +28,10 @@
 		<h2 class="holder-heading"> Contact Details</h2>
 		<form action="/action_page.php">
 			<p>
-		  <label for="fname">Phone Number</label>	<input required type="text" id="fname" name="fname" value={{ .User.Contact.Phone }}>
-			<label for="fname">Email</label>	<input required type="email" id="fname" name="fname" value={{ .User.Contact.Email }}></p>
-			<p> <label for="fname">Emergency Contact Name</label>	<input required type="text" id="fname" name="fname" value={{ .User.Contact.EName }}>
-		  <label for="fname">Emergency Contact Number</label>	<input required type="tel" id="fname" name="fname" value={{ .User.Contact.EPhone }}><br><br>
+		  <label for="fname">Phone Number</label>	<input required type="text"  value={{ .User.Contact.Phone }}>
+			<label for="fname">Email</label>	<input required type="email"  value={{ .User.Contact.Email }}></p>
+			<p> <label for="fname">Emergency Contact Name</label>	<input required type="text"  value={{ .User.Contact.EName }}>
+		  <label for="fname">Emergency Contact Number</label>	<input required type="tel"  value={{ .User.Contact.EPhone }}><br><br>
 			</p>
 		  <input required type="submit" value="Update">
 		</form> 
