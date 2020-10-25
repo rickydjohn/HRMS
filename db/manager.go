@@ -1,6 +1,8 @@
 package db
 
 import (
+	"time"
+
 	"github.com/HRMS/models"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
@@ -24,6 +26,9 @@ func Begin(dbconn models.DB, startOfYear string) (Storage, error) {
 	dsn := dbconn.Uname + ":" + dbconn.Pwd + "@tcp(" + dbconn.IP + ":3306)/HRMS?parseTime=true"
 
 	conn := sqlx.MustConnect("mysql", dsn)
+	conn.SetConnMaxIdleTime(time.Duration(1 * time.Minute))
+	conn.SetConnMaxLifetime(time.Duration(1 * time.Minute))
+	conn.SetMaxOpenConns(100)
 	if err := conn.Ping(); err != nil {
 		return nil, err
 	}

@@ -41,6 +41,22 @@ function addEdu(){
 }
 
 
-function postLoad(){
-	console.log("hi");
+function loadsalary(){
+	var val = document.getElementById("designation").value;
+	var loadsalary = document.getElementById("loadsalary");
+	if ( val == ""){
+		while (loadsalary.children.length > 0 ){ loadsalary.removeChild(loadsalary.lastChild) };
+		return;
+	}
+	$.get("http://localhost:8080/api/sessions", function(data){
+		while (loadsalary.children.length > 0 ){ loadsalary.removeChild(loadsalary.lastChild) };
+		$.each(data, function(k, v){
+			var tr = document.createElement("tr");
+			var td = document.createElement("td");
+			td.innerHTML = k;
+			tr.appendChild(td);
+			loadsalary.appendChild(tr);
+		});
+	});
+	return;
 }

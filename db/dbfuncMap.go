@@ -13,3 +13,18 @@ func (d *db) funcmap(name Queries) (queryFunc, error) {
 	}
 	return v, nil
 }
+
+func (d *db) ApiFuncs(val string, fName Queries) ([]byte, error) {
+	fmap := map[Queries]apidata{
+		API_DESIGNATIONS: d.designations,
+	}
+	v, ok := fmap[fName]
+	if !ok {
+		return nil, ErrNoQuery
+	}
+	data, err := v(val)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}

@@ -45,6 +45,7 @@ func New(log *logrus.Entry, CN models.App, session sessions.SessInterface, crud 
 
 	api := handler.PathPrefix("/api").Subrouter().StrictSlash(true)
 	api.Methods("GET").Path("/sessions").HandlerFunc(r.sessionAPI)
+	api.Methods("GET").Path("/designation/{id:[0-9]+}").HandlerFunc(r.designations)
 
 	fs := http.FileServer(http.Dir("."))
 	handler.PathPrefix("/web").Handler(fs)
@@ -55,6 +56,11 @@ func New(log *logrus.Entry, CN models.App, session sessions.SessInterface, crud 
 
 //Begin is for starting the router module
 func (r *App) Begin() error {
+	defer func() {
+		if err := recover(); err != nil {
+			r.log.Errorf("=========ERROR=============\n%v\n", err)
+		}
+	}()
 	if err := http.ListenAndServe("0.0.0.0:8080", r.handler); err != nil {
 		return err
 	}

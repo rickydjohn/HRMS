@@ -77,7 +77,7 @@ type Salary struct {
 	HRA   int `db:"hra"`
 	LTA   int `db:"lta"`
 	SPA   int `db:"spa"`
-	OR    int `db:"or"`
+	OR    int `db:"others"`
 	PF    int `db:"pf"`
 }
 

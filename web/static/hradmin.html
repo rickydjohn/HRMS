@@ -2,7 +2,7 @@
 {{ template "hradmin" }}
 
 <div class="holder">
-		<form action="cvformphp.php" method="post">
+		<form action="" method="post">
 
 			<table id="personal">
 				<tbody>
@@ -67,12 +67,13 @@
 					<tr>
 						<td>Designation</td>
 						<td>
-							<select name="teams" id="teams">
+							<select name="designation" id="designation" onclick="loadsalary()">
 									<option value=""></option>
 									<option value="test">Test</option>
 						</td>
 					</tr>
 			</tbody>
+			<table id="loadsalary"> </table>
 		</table>
 
 		</form>
