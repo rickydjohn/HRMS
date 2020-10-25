@@ -59,11 +59,19 @@
 									<option value={{ .TID }}>{{ .Name }}</option>
 								{{ end }}
 							{{ else }}
-								<td><p>Please create a team before creating user</p></td>
+								<td><p>Please create a team before creating user</p>
 							{{ end }}
 						</td>
+						<td>Manage selected team: <td></td><td><input type="checkbox" name="manager" value="true" ></td>
 					</tr>
-					
+					<tr>
+						<td>Designation</td>
+						<td>
+							<select name="teams" id="teams">
+									<option value=""></option>
+									<option value="test">Test</option>
+						</td>
+					</tr>
 			</tbody>
 		</table>
 

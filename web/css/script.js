@@ -39,3 +39,8 @@ function addEdu(){
 	cell6.innerHTML = "<input type='month' name='yop"+ countBox +"'id='yop"+countBox +"'/>";
 	countBox += 1;
 }
+
+
+function postLoad(){
+	console.log("hi");
+}
