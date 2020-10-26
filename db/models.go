@@ -36,5 +36,5 @@ type Storage interface {
 	Auth(uname, pwd string) (models.User, error)
 	BuildUser(uid int, fName Queries) (models.User, error)
 	ApiFuncs(val string, fName Queries) ([]byte, error)
-	ListTeams() ([]models.Team, error)
+	HRAdmin() (models.HRAdmin, error)
 }

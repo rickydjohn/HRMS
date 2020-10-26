@@ -6,9 +6,9 @@ import (
 	"github.com/HRMS/models"
 )
 
-func (d *db) ListTeams() ([]models.Team, error) {
-	var t []models.Team
-	rows, err := d.txHandler().Queryx("select tid, name, manager from Team")
+func (d *db) HRAdmin() (models.HRAdmin, error) {
+	var t models.HRAdmin
+	rows, err := d.db.Queryx("select tid, name, manager from Team")
 	if err == sql.ErrNoRows {
 		return t, nil
 	} else if err != nil {
@@ -19,7 +19,22 @@ func (d *db) ListTeams() ([]models.Team, error) {
 		if err := rows.StructScan(&tmp); err != nil {
 			return t, err
 		}
-		t = append(t, tmp)
+		t.Teams = append(t.Teams, tmp)
+	}
+
+	drows, err := d.db.Queryx("select desgnID, name, grade, level from Designations")
+	if err == sql.ErrNoRows {
+		return t, nil
+	} else if err != nil {
+		return t, err
+	}
+
+	for drows.Next() {
+		var tmp models.Designation
+		if err := drows.StructScan(&tmp); err != nil {
+			return t, err
+		}
+		t.Designations = append(t.Designations, tmp)
 	}
 	return t, nil
 }

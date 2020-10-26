@@ -40,23 +40,48 @@ function addEdu(){
 	countBox += 1;
 }
 
-
 function loadsalary(){
+	var total = 0;
 	var val = document.getElementById("designation").value;
 	var loadsalary = document.getElementById("loadsalary");
 	if ( val == ""){
-		while (loadsalary.children.length > 0 ){ loadsalary.removeChild(loadsalary.lastChild) };
+		while (
+			loadsalary.children.length > 0 ){ 
+			loadsalary.removeChild(loadsalary.lastChild) 
+		};
+		document.getElementById("empsubmit").style.visibility = "hidden"
 		return;
 	}
-	$.get("http://localhost:8080/api/sessions", function(data){
+	$.get("http://localhost:8080/api/designation/"+val, function(data){
 		while (loadsalary.children.length > 0 ){ loadsalary.removeChild(loadsalary.lastChild) };
 		$.each(data, function(k, v){
-			var tr = document.createElement("tr");
-			var td = document.createElement("td");
-			td.innerHTML = k;
-			tr.appendChild(td);
-			loadsalary.appendChild(tr);
+			if (v != 0 ){
+				total += parseInt(v, 10);
+				var tr = document.createElement("tr");
+				tr.innerHTML += "<td>"+k+"</td><td><input type='int' name='"+k+"' value='"+v+"' onChange='calMonthly()'></td>";
+				loadsalary.appendChild(tr);
+			}
 		});
+			var totaltr = document.createElement("tr");
+			var totaltd = document.createElement("td");
+			totaltd.setAttribute("id", "msalary")
+			totaltd.innerText = "Total Montly salary before tax deduction: " + Math.round(total / 12)
+			totaltr.appendChild(totaltd);
+			loadsalary.appendChild(totaltr);
+			document.getElementById("empsubmit").style.visibility = "unset"
 	});
-	return;
+}
+
+
+function calMonthly(){
+	var total = 0;
+	var totaltr = document.getElementById("msalary");
+	var d = document.getElementById("loadsalary");
+	var inps = d.getElementsByTagName("input")
+	for (i of inps){
+		total += parseInt(i.value, 10);
+	}
+	totaltr.innerText = "Total Montly salary before tax deduction: " + Math.round(total / 12)
+	var d = document.getElementById("loadsalary")
+	d.appendChild(totaltr);
 }

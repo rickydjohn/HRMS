@@ -6,7 +6,20 @@ type Webstruct struct {
 	User    User
 	IsAuth  bool
 	Message string
+	HRAdmin HRAdmin
 	Teams   []Team
+}
+
+type HRAdmin struct {
+	Teams        []Team        `db:"teams"`
+	Designations []Designation `db:"designations"`
+}
+
+type Designation struct {
+	DesgnID int    `db:"desgnID"`
+	Name    string `db:"name"`
+	Grade   string `db:"grade"`
+	Level   int    `db:"level"`
 }
 
 // User struct contains data that corresponds to a user

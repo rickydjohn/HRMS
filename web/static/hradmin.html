@@ -3,7 +3,6 @@
 
 <div class="holder">
 		<form action="" method="post">
-
 			<table id="personal">
 				<tbody>
 					<tr><td><h3>Personal Info</h3></td></tr>
@@ -53,8 +52,8 @@
 					<tr>
 						<td>Team</td>
 						<td>
-							{{ if .Teams }}
-								{{ range .Teams }}
+							{{ if .HRAdmin.Teams }}
+								{{ range .HRAdmin.Teams }}
 								<select name="teams" id="teams">
 									<option value={{ .TID }}>{{ .Name }}</option>
 								{{ end }}
@@ -66,16 +65,20 @@
 					</tr>
 					<tr>
 						<td>Designation</td>
+							{{ if .HRAdmin.Designations }}
 						<td>
 							<select name="designation" id="designation" onclick="loadsalary()">
 									<option value=""></option>
-									<option value="test">Test</option>
+								{{ range .HRAdmin.Designations }}
+								<option value="{{ .DesgnID }}">{{ .Name }}</option>
+								{{ end }}
 						</td>
+						{{ end }}
 					</tr>
 			</tbody>
-			<table id="loadsalary"> </table>
+			<table id="loadsalary"></table>
 		</table>
-
+		<tbody><tr><td><input type="submit" value="submit" id="empsubmit" style="visibility: hidden;"></td></tr></tbody>
 		</form>
 </div>
 
