@@ -1,0 +1,18 @@
+{
+	"Service": {
+		"port": "localhost:8080"
+	},
+	"db": {
+		"uname": "nseparser",
+		"pwd": "megh",
+		"ip": "localhost"
+	},
+	"application": {
+		"holidays": {
+		"christmas": "25-12-2020"
+		},
+		"totalLeaves": 30,
+		"company": "SapienHR",
+		"yearStart": "april"
+	}
+}
